@@ -1,0 +1,85 @@
+<div id="FormDetails">
+   
+  <h2>Welcome  </h2>
+  
+ <!-- NAME INPUT FIELD -->
+
+    
+     <input type="text" class="text" name="name" placeholder="Name"> <br>
+
+
+<!-- SURNAME INPUT FIELD -->
+
+     
+     <input type="text" class="text" name="surname" placeholder="Surname"> <br>
+
+
+<!-- DROPDOWN BOX FOR GENDER POPULATED USING THE NGFOR LOOP STRUCTURE-->
+
+  <div name="gender">
+    Gender:
+      <select>
+      <option *ngFor="let sex of gender; let i=index">{{gender[i]}}</option> 
+      </select> <br>
+  </div>
+
+  
+<!-- BOOKING TYPE SELECTION WITH AN NGMODEL FOR 2 WAY BINDING -->
+  <div id="booking"> 
+   Booking:
+      <select [(ngModel)] = "selectedbooking">
+      <option *ngFor="let types of typeOfBookings; let i=index">{{typeOfBookings[i]}}</option>
+      </select>
+  
+  </div>    
+  
+
+<!-- BOOKING FOR BUS 2 DROPDOWN BOXES POPULATED USING THE NGFOR LOOP STRUCTURE-->
+<div id="bookedtype">
+    <div *ngIf="selectedbooking ==='Bus' "> 
+      From:
+        <select>
+        <option *ngFor="let TripTo of JourneyTo; let i=index">{{JourneyTo[i]}}</option>
+        </select>
+      To:
+        <select>
+        <option *ngFor="let TripFrom of JourneyFrom; let i=index">{{JourneyFrom[i]}}</option>
+        </select>   
+    </div>
+
+
+  <!-- BOOKING FOR HOTEL 3 RADIO BUTTONS -->
+
+    <div *ngIf="selectedbooking ==='Hotel' ">   
+        <input type="radio" name="hotel" value="1day"> 1 Day <br>
+        <input type="radio" name="hotel" value="2days"> 2 Days <br>
+        <input type="radio" name="hotel" value="3days"> 3 Days      
+    </div>
+
+
+<!-- BOOKING FOR COMPUTER 3 RADIO BUTTONS -->
+
+
+<table  >
+    <tr>
+        <td>
+     <div *ngIf="selectedbooking ==='Computer' ">     
+         <input type="radio" name="hours" value="1hour"> 1 Hour <br>
+        <input type="radio" name="hours" value="2hours"> 2 Hours <br>
+        <input type="radio" name="hours" value="3hours"> 3 Hours  <br>
+    </div>
+    </td>
+    </tr>
+</table>
+</div>
+
+
+
+    <div>
+      <input type="submit" class="btn" value="Submit booking">
+      <input type="submit" class="btn" value="Display booking">
+    </div>
+     
+
+
+</div>
